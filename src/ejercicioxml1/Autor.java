@@ -5,15 +5,23 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
 
 /**
- *
- *
+ * clase autor que implementa la interfaz XMLStreamWriter
+ * @author cristian
+ * @version 1.0
  */
 public class Autor implements XMLStreamWriter {
 
+    //variables de la clase
     private String codigo;
     private String nome;
     private String  [] titulo;
 
+    /**
+     * contructor de la clase
+     * @param codigo el codigo del autor
+     * @param nome el nombre del autor
+     * @param titulo los titulos del autor
+     */
     public Autor(String codigo, String nome, String [] titulo) {
         this.codigo = codigo;
         this.nome = nome;
@@ -23,6 +31,10 @@ public class Autor implements XMLStreamWriter {
 
     }
 
+    /**
+     * getter y setter de la clase
+     * @return la variable correspondiente
+     */
     public String getCodigo() {
         return codigo;
     }
@@ -47,6 +59,9 @@ public class Autor implements XMLStreamWriter {
         this.titulo = titulo;
     }
 
+    /**
+     * lo siguiente son los métodos de la interfaz a implementar
+     */
 
     /**
      * Escribe una etiqueta de inicio en la salida. Todos los métodos writeStartElement

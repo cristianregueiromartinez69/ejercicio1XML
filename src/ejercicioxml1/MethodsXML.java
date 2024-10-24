@@ -70,6 +70,11 @@ public class MethodsXML {
 
 
             }
+            /**
+             * IMPORTANTE:
+             * close() -> cerrar el documento, si no no se guarda el fichero
+             * writeEndDocument() -> finalizamos el xml
+             */
             xmlStreamWriter.writeEndElement();
             xmlStreamWriter.writeEndDocument();
             xmlStreamWriter.close();
