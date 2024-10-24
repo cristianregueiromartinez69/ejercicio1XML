@@ -22,20 +22,28 @@ public class MethodsXML {
             xmlStreamWriter.writeStartDocument();
             xmlStreamWriter.writeStartElement("autores");
             for(int i = 0; i < 2; i++){
+                xmlStreamWriter.writeCharacters("\n");
                 xmlStreamWriter.writeStartElement("autor");
                 xmlStreamWriter.writeAttribute("codigo", autor[i].getCodigo());
+                xmlStreamWriter.writeCharacters("\n");
                 xmlStreamWriter.writeStartElement("nome");
                 xmlStreamWriter.writeCharacters(autor[i].getNome());
                 xmlStreamWriter.writeEndElement();
+                xmlStreamWriter.writeCharacters("\n");
+
 
 
                 xmlStreamWriter.writeStartElement("titulo");
                 xmlStreamWriter.writeCharacters(autor[i].getTitulo()[0]);
                 xmlStreamWriter.writeEndElement();
+                xmlStreamWriter.writeCharacters("\n");
                 xmlStreamWriter.writeStartElement("titulo");
                 xmlStreamWriter.writeCharacters(autor[i].getTitulo()[1]);
                 xmlStreamWriter.writeEndElement();
+                xmlStreamWriter.writeCharacters("\n");
                 xmlStreamWriter.writeEndElement();
+                xmlStreamWriter.writeCharacters("\n");
+
 
             }
             xmlStreamWriter.writeEndElement();
