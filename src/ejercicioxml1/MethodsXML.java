@@ -38,9 +38,17 @@ public class MethodsXML {
 
             /**
              * bucle for de 2 vueltas ya que nos piden escribirlo 2 veces
+             * será tan largo como longitud tenga el objeto array autores
              */
             for(int i = 0; i < autor.length; i++){
 
+                /**
+                 * Explicación de los métodos
+                 * writeCharacters -> va a escribir algo dentro de un tag
+                 * writeStartElement -> nombre de la etiqueta y la inicia
+                 * writeAttribute -> atributo con valor de la etiqueta anteriormente creada
+                 * writeEndElement -> cerramos la ultima etiqueta abierta
+                 */
                 xmlStreamWriter.writeCharacters("\n");
                 xmlStreamWriter.writeStartElement("autor");
                 xmlStreamWriter.writeAttribute("codigo", autor[i].getCodigo());
@@ -63,6 +71,7 @@ public class MethodsXML {
 
             }
             xmlStreamWriter.writeEndElement();
+            xmlStreamWriter.writeEndDocument();
             xmlStreamWriter.close();
             System.out.println("Fichero escritor correctamente");
 
