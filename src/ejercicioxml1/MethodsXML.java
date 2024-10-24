@@ -8,20 +8,39 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 /**
- *
- * @author accesodatos
+ * Clase con el metodo para escribir en un fichero xml desde java
+ * @author cristian
+ * @version 1.0
  */
 public class MethodsXML {
 
+    /**
+     * Método que escribe en un fichero xml
+     * @param autor el array de autores
+     * @param path el path del xml
+     */
     public void writeXMLFile(Autor [] autor, String path){
 
+        //instanciamos un objeto de tipo XMLOutputFactory para escribir
         XMLOutputFactory xmlOutputFactory = XMLOutputFactory.newInstance();
 
         try{
+            /**
+             * Dentro del try-catch, para manejar las excepciones, hacemos lo siguiente
+             * 1. instanciamos un objeto de tipo XMLStreamWriter y llamamos al metodo que crea el xml createXMLStreamWriter, por parámetro pasamos el path
+             * 2. iniciamos el documento con writeStartDocument();
+             * 3. este metodo writeStartElement(nombre) sirve para poner el elemento raiz de nuestro xml
+             */
             XMLStreamWriter xmlStreamWriter = xmlOutputFactory.createXMLStreamWriter(new FileWriter(path));
             xmlStreamWriter.writeStartDocument();
+            xmlStreamWriter.writeCharacters("\n");
             xmlStreamWriter.writeStartElement("autores");
-            for(int i = 0; i < 2; i++){
+
+            /**
+             * bucle for de 2 vueltas ya que nos piden escribirlo 2 veces
+             */
+            for(int i = 0; i < autor.length; i++){
+
                 xmlStreamWriter.writeCharacters("\n");
                 xmlStreamWriter.writeStartElement("autor");
                 xmlStreamWriter.writeAttribute("codigo", autor[i].getCodigo());
@@ -30,9 +49,6 @@ public class MethodsXML {
                 xmlStreamWriter.writeCharacters(autor[i].getNome());
                 xmlStreamWriter.writeEndElement();
                 xmlStreamWriter.writeCharacters("\n");
-
-
-
                 xmlStreamWriter.writeStartElement("titulo");
                 xmlStreamWriter.writeCharacters(autor[i].getTitulo()[0]);
                 xmlStreamWriter.writeEndElement();
